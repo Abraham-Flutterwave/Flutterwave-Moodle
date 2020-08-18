@@ -1,3 +1,5 @@
+# Flutterwave-Moodle
+
 Enrolment in Moodle using Flutterwave payment gateway for paid courses.
 
 This plugin helps admins and web admins use Flutterwave as the payment gateway.
