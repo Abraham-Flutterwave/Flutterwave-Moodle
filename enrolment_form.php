@@ -14,6 +14,7 @@ $publicKey = $this->get_config('pubKey');
 <!-- pay now -->
 <div style="text-align: center" id="raveView">
     <form>
+        <!--v3 api -->
         <script src="https://checkout.flutterwave.com/v3.js"></script>
 
 
@@ -41,6 +42,7 @@ $publicKey = $this->get_config('pubKey');
     </svg>
     <!--    <img style="width: 50px;" src="--><?php //echo $CFG->wwwroot; ?><!--/enrol/flutterwave/pix/flw_spinner.svg"/>-->
 </div>
+<!-- custom styling -->
 <style>
     #payWithRaveBtn {
         min-width: 220px;
@@ -168,12 +170,12 @@ if (isset($_POST['responseData'])) {
 
 
 <script>
-    // hiding loaderView
     document.getElementById('loaderView').style.display = 'none'
 
     function payWithRave() {
         const url = window.location.href;
 
+        // v3 inline
         const raveCheckout = FlutterwaveCheckout({
             public_key: '<?php echo $publicKey; ?>',
             tx_ref: new Date().getTime().toString(),
@@ -192,14 +194,10 @@ if (isset($_POST['responseData'])) {
             callback: function (response) {
                 raveCheckout.close();
                 console.log(response);
-                // hide raveView
                 document.getElementById('raveView').style.display = 'none'
-
-                // show loaderView
                 document.getElementById('loaderView').style.display = 'block'
 
                 if (response.status === 'successful') {
-
                     swal({
                         title: 'Success',
                         text: 'Payment successful',
@@ -210,13 +208,11 @@ if (isset($_POST['responseData'])) {
                             visible: true
                         }
                     }).then((value) => {
-                        // redirect to a success page
                         document.getElementById('responseData').value = JSON.stringify(response)
                         document.getElementById('submitForm').submit()
 
                     });
                 } else {
-                    // redirect to a failure page.
                     swal('Error', response.data.response_parsed.message, 'error', {
                         button: "Close"
                     });
