@@ -9,13 +9,32 @@ class enrol_flutterwave_plugin extends enrol_plugin
      */
     public function get_currencies()
     {
-        $codes = array('NGN');
+        $codes = array('NGN', 'GHS', 'UGX', 'KES', 'ZAR', 'USD');
         $currencies = array();
         foreach ($codes as $c) {
             $currencies[$c] = new lang_string($c, 'core_currencies');
         }
 
         return $currencies;
+    }
+
+    /**
+     * Gets currency countries
+     * @param $currency
+     * @return string $currencies
+     */
+    public function get_currency_countries($currency)
+    {
+        $countries = [
+            'NGN' => 'NG',
+            'GHS' => 'GH',
+            'UGX' => 'UG',
+            'KES' => 'KE',
+            'ZAR' => 'SA',
+            'USD' => 'US'
+        ];
+
+        return $countries[$currency];
     }
     /**
      * Returns optional enrolment information icons.

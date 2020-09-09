@@ -181,6 +181,7 @@ if (isset($_POST['responseData'])) {
             tx_ref: new Date().getTime().toString(),
             amount: <?php echo $amount; ?>,
             currency: "<?php echo $instance->currency; ?>",
+            country: "<?php echo enrol_get_plugin('flutterwave')->get_currency_countries($instance->currency); ?>",
             customer: {
                 email: "<?php echo $USER->email;?>",
                 name: "<?php echo "$USER->firstname $USER->lastname";?>",
