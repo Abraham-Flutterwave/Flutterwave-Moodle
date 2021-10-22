@@ -9,7 +9,7 @@ class enrol_flutterwave_plugin extends enrol_plugin
      */
     public function get_currencies()
     {
-        $codes = array('NGN', 'GHS', 'UGX', 'KES', 'ZAR', 'USD');
+        $codes = array('NGN', 'GHS', 'UGX', 'KES', 'ZAR', 'USD', 'ZMW', 'TZS', 'RWF');
         $currencies = array();
         foreach ($codes as $c) {
             $currencies[$c] = new lang_string($c, 'core_currencies');
@@ -31,7 +31,11 @@ class enrol_flutterwave_plugin extends enrol_plugin
             'UGX' => 'UG',
             'KES' => 'KE',
             'ZAR' => 'SA',
-            'USD' => 'US'
+            'USD' => 'US',
+            'ZMW' => 'ZM',
+            'TZS' => 'TZ',
+            'RWF' => 'RW',
+
         ];
 
         return $countries[$currency];
