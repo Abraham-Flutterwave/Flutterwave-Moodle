@@ -2,6 +2,7 @@
 $string['pluginname'] = 'Flutterwave';
 $string['pluginname_desc'] = 'The Flutterwave module allows you to set up paid courses.  If the cost for any course is zero, then students are not asked to pay for entry.  There is a site-wide cost that you set here as a default for the whole site and then a course setting that you can set for each course individually. The course cost overrides the site cost.';
 $string['loginid'] = 'Flutterwave login ID';
+$string['pubKey'] = 'Flutterwave Public Key';
 $string['transactionkey'] = 'Flutterwave transaction key';
 $string['merchantmd5hash'] = 'Flutterwave merchant MD5 hash key';
 $string['clientkey'] = 'Flutterwave merchant Client key';
